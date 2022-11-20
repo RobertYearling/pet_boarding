@@ -1,0 +1,99 @@
+/* CSS HEX
+#687864;
+#31708E;
+#5085A5;
+#8FC1E3;
+#F7F9FB;
+*/
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    background-color: #F7F9FB;
+    width: 390px;
+}
+
+.header_text {
+    font-size: 24px;
+}
+
+.book_btn {
+    background-color: #31708E;
+    color: #F7F9FB;
+    padding: 15px 20px;
+    text-decoration: none;
+}
+
+.banner_image {
+    height: 100px;
+    margin-right: 10px;
+}
+
+.book_now{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 40px 0;
+}
+
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #687864;
+    color: #F7F9FB;
+    padding: 15px;
+}
+
+.info_panel {
+    background-color: #8FC1E340;
+    padding: 15px;
+}
+
+.info_header {
+    text-align: center;
+}
+
+.info_text {
+    background-color: #F7F9FB;
+    border-radius: 7px;
+    margin: 5px;
+    padding: 5px;
+}
+
+.form {
+    background-color: #8FC1E340;
+    color: #5085A5;
+    padding: 15px 20px;
+    margin: 40px 20px;
+}
+
+.form_options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #F7F9FB;
+    margin-top: 30px;
+}
+
+.form_options a {
+    color: #5085A5;
+}
+
+.submit_button {
+    background-color: #5085A5;
+    border: none;
+    border-radius: 5px;
+    color: #F7F9FB;
+    padding: 9px 11px;
+}
+
+.footer {
+    background-color: #5085A5;
+    color: #F7F9FB;
+    padding: 20px;
+    text-align: center;
+}
