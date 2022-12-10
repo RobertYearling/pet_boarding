@@ -29,17 +29,11 @@ def register_user():
     valid = User.user_validator(data)
     if valid :
         pw_hash = bcrypt.generate_password_hash(request.form['password'])
-        # print(request.form['password'])
-        # print(pw_hash)
         data['pw_hash'] = pw_hash
         user = User.create_user(data)
-        # Checks the user in session
         session['user_id'] = user
         print('You got it, You are a new user')
         return redirect('/select')
-    # print(valid)
-    # user = User.create_user(data)
-    # return redirect('/success')
     return redirect('/register')
 
 @app.route('/user_login', methods=['POST'])
@@ -54,6 +48,18 @@ def login_user():
     session['user_id'] = user.id
     print('Success')
     return redirect('/select')
+
+# Customers List -----
+@app.route('/customers')
+def customers():
+    if 'user_id' not in session:
+        return redirect('/')
+    user_data = {
+        'id': session['user_id']
+    }
+    user = User.get_one(user_data)
+    users = User.get_all()
+    return render_template('customers.html', user = user, users = users)
 
 @app.route('/logout')
 def logout():

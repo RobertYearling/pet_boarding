@@ -5,46 +5,57 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pet Boarding - Show Pet</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/pet_list.css') }}">
 </head>
 <body>
-    <div class="container col-md p-1">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="/">Pet Boarding</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/select">Main</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/cats">Cats</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/dogs">Dogs</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add_pet">Add A Pet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="container mx-auto">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="/">Pet Boarding</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Questions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/select">Main</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customers">Customer List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cats">Cats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dogs">Dogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/add_pet">Add A Pet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/select">Back To Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         <div class="pet_info">
             <h2><span class="title">Name: </span>{{pet.name}}</h2>
             <p><span class="title">Breed: </span>{{pet.breed}}</p>
@@ -53,13 +64,17 @@
             <p><span class="title">Hair Color: </span>{{pet.haiur_color}}</p>
             <p><span class="title">Information: </span>{{pet.information}}</p>
             <p><span class="title">Owner: </span>{{pet.owner.first_name}} {{pet.owner.last_name}}</p>
+            <div class="row text-center">
+                <p class="col-sm-6"><a href="/edit_pet/{{pet.id}}" class="info_link info_header"> Edit {{pet.name}}</a></p>
+                <p class="col-sm-6"><a href="/delete/{{pet.id}}" class="info_link info_header"> Remove {{pet.name}}</a></p>
+            </div>
             <p class="header_text">Cats</p>
             <div class="show_pet">
                 <!-- Dogs -->
                 {% for pet in all %}
                 {% if pet.type == 'Cat' %}
-                <div class="info_panel">
-                    <a href="/show_pet/{{pet.id}}" class="info_link info_header">{{pet.name}}</a>
+                <div class="info_panel text-center">
+                    <p class="info_header"><a href="/show_pet/{{pet.id}}" class="info_link">{{pet.name}}</a></p>
                 </div>
                 {% endif %}
                 {% endfor %}
@@ -69,8 +84,8 @@
                 <!-- Dogs -->
                 {% for pet in all %}
                 {% if pet.type == 'Dog' %}
-                <div class="info_panel">
-                    <a href="/show_pet/{{pet.id}}" class="info_link info_header">{{pet.name}}</a>
+                <div class="info_panel text-center">
+                    <p class="info_header"><a href="/show_pet/{{pet.id}}" class="info_link">{{pet.name}}</a></p>
                 </div>
                 {% endif %}
                 {% endfor %}

@@ -35,9 +35,6 @@
                             <a class="nav-link" href="/select">Main</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="/customers">Customer List</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" href="/dogs">Dogs</a>
                         </li>
                         <li class="nav-item">
@@ -54,17 +51,15 @@
             </nav>
         </div>
         <div class="pets">
-            <p class="header_text">Cats</p>
+            <p class="header_text">Customer List</p>
             <!-- Cats -->
-            {% for animal in all_likes %}
-            {% if animal.type == 'Cat' %}
+            {% for user in users %}
             <div class="info_panel">
-                <a href="/show_pet/{{animal.id}}" class="info_link">
-                    <p class="info_header">{{animal.name}} - {{animal.user.first_name}} {{animal.user.last_name}}</p>
-                    <p class="info_text">Information: {{animal.information}}</p>
+                <a href="" class="info_link">
+                    <p class="info_header">{{user.first_name}}</p>
+                    <p class="info_text"></p>
                 </a>
             </div>
-            {% endif %}
             {% endfor %}
         </div>
         <p class="footer">&copy; Copyright - Pet Boarding Co.</p>

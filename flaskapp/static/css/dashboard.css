@@ -14,12 +14,12 @@
 
 .container {
     background-color: #F7F9FB;
-    width: 390px;
 }
 
 .header_text {
     display: flex;
     align-self: center;
+    flex-direction: column;
     justify-content: space-between;
     color: #5085A5;
     font-size: 24px;
@@ -31,26 +31,23 @@ img {
     margin-right: 20px;
 }
 
-.info_panel {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    background-color: #68786490;
-    border-radius: 9px;
-    margin: 5px;
-    padding: 0px;
-}
-
 .info_header {
     text-align: center;
+
 }
 
-.info_link {
+/* .info_link {
     background-color: #F7F9FB;
     border-radius: 7px;
     margin: 5px;
     padding: 15px;
     text-decoration: none;
+} */
+
+.info_panel {
+    /* border: 1px solid black; */
+    text-align: center;
+    padding: 11px;
 }
 
 a .info_text {

@@ -47,11 +47,6 @@ class User:
         if not EMAIL_REGEX.match(data['email']):
             flash("Invalid email address!", 'register')
             is_valid = False
-        # Check to see if the Email is already in the db
-        # query = "SELECT * FROM users WHERE email = %(email)s"
-        # results = connectToMySQL('login_reg').query_db(query, data)
-        # ---------------
-        # Check to see if the Email is already in the db
         connection = connectToMySQL(db)
         query = "SELECT * FROM users WHERE email = %(email)s"
         results = connection.query_db(query, data)

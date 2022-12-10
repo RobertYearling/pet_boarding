@@ -9,36 +9,50 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/dashboard.css') }}">
 </head>
 <body>
-    <div class="container col-md p-1">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <div class="container-fluid">
-            <a class="navbar-brand" href="/">Pet Boarding</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav">
-                    <li class="nav-item">
-                        <a class="nav-link" href="/">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Services</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Questions</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/select">Main</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/add_pet">Add A Pet</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="/logout">Logout</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
+    <div class="container mx-auto">
+        <div class="row">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <div class="container-fluid">
+                <a class="navbar-brand" href="/">Pet Boarding</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Questions</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contact</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/select">Main</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/customers">Customer List</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/cats">Cats</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/dogs">Dogs</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/add_pet">Add A Pet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/logout">Logout</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
         {% set currentTime = time|int %}
         {% set greeting = "hello" %}
 
@@ -49,29 +63,37 @@
         {% else %}
         {% set greeting = "Good Evening" %}
         {% endif %}
-        <div class="header_text">
+        <div class="d-flex justify-content-between">
             <p>{{greeting}} {{user.first_name}}</p>
             <p>Today is {{date}}</p>
         </div>
+        <div class="header_text">
+        </div>
         <!-- Pets In Boarding -->
         <p class="header_text">Pets In Boarding</p>
-        <div class="info_panel">
-            <a href="/cats" class="info_link">
-                <img src="{{ url_for('static', filename='img/cat.png') }}" class="icon" alt="cat">
-                <p class="info_text">Cats Currently In Boarding</p>
-            </a>
-            <a href="/dogs" class="info_link">
-                <img src="{{ url_for('static', filename='img/dog.png') }}" class="icon" alt="cat">
-                <p class="info_text">Dogs Currently In Boarding</p>
-            </a>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 info_panel">
+                <a href="/cats" class="info_link">
+                    <img src="{{ url_for('static', filename='img/cat.png') }}" class="icon" alt="cat">
+                    <p class="info_text">Cats Currently In Boarding</p>
+                </a>
+            </div>
+            <div class="col-sm-12 col-md-6 info_panel">
+                <a href="/dogs" class="info_link">
+                    <img src="{{ url_for('static', filename='img/dog.png') }}" class="icon" alt="cat">
+                    <p class="info_text">Dogs Currently In Boarding</p>
+                </a>
+            </div>
         </div>
         <!-- Customers -->
         <p class="header_text">Customers</p>
-        <div class="info_panel">
-            <a href="#" class="info_link">
-                <img src="{{ url_for('static', filename='img/contacts.png') }}" class="icon" alt="contacts">
-                <p class="info_text">Customer List</p>
-            </a>
+        <div class="row">
+            <div class="col-sm-12 col-md-6 info_panel">
+                <a href="/customers" class="info_link">
+                    <img src="{{ url_for('static', filename='img/contacts.png') }}" class="icon" alt="contacts">
+                    <p class="info_text">Customer List</p>
+                </a>
+            </div>
         </div>
         <p class="footer">&copy; Copyright - Pet Boarding Co.</p>
     </div>

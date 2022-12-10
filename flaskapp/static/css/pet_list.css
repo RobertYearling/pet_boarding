@@ -20,7 +20,7 @@ a:link {
 
 .container {
     background-color: #F7F9FB;
-    width: 390px;
+
 }
 
 .pet_info {
@@ -28,7 +28,9 @@ a:link {
     border-radius: 7px;
     color: #31708E;
     font-weight: thin;
+    margin: 5px auto;
     padding: 20px;
+    width: 500px;
 }
 
 .title {
@@ -37,9 +39,11 @@ a:link {
 }
 
 .header_text {
-    color: #31708E;
+    color: #687864;
     font-size: 28px;
     font-weight: thin;
+    margin: 5px auto;
+    width: 500px;
 }
 
 .pets {
@@ -50,7 +54,7 @@ a:link {
     margin: 5px;
     overflow-y:scroll;
     overflow-x:hidden;
-    height: 175px;
+    height: 200px;
 }
 
 
@@ -58,7 +62,9 @@ a:link {
     background-color: #F7F9FB;
     color: #687864;
     border-radius: 9px;
-    margin: 5px 0;
+    margin: 7px auto;
+    text-align: center;
+    width: 400px;
 }
 
 .info_link {

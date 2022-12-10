@@ -89,7 +89,7 @@ def edit_pet(pet_id):
 @app.route('/update_pet/<int:pet_id>', methods=['POST'])
 def update_pet(pet_id):
     Pet.update_pet(request.form, pet_id)
-    return redirect('/dashboard')
+    return redirect('/select')
 
 # Moved to controllers_likes,py
 # Like One Pet -----
@@ -100,7 +100,7 @@ def like(pet_id):
         'user_id' : session['user_id']
     }
     Pet.like(data)
-    return redirect('/dashboard')
+    return redirect('/select')
 
 # Dislike One Pet -----
 @app.route('/dislike/<int:pet_id>')
@@ -110,7 +110,7 @@ def dislike(pet_id):
         'user_id' : session['user_id']
     }
     Pet.dislike(data)
-    return redirect('/dashboard')
+    return redirect('/select')
 
 # Delete One Animal -----
 @app.route('/delete/<int:pet_id>')
@@ -119,4 +119,4 @@ def delete(pet_id):
         'id' : pet_id
     }
     Pet.delete_pet(data)
-    return redirect('/dashboard')
+    return redirect('/select')
